@@ -34,3 +34,6 @@ Deploy the application on the community cloud platform for accessibility.
 This project relies on Python and the following packages:
 
 Numpy Pandas Matplotlib Seaborn Scikit-learn Scipy Streamlit.
+
+### Youtube Video Link
+https://youtu.be/MukrHocAEcg?si=YIBDBO5D15XDLfe4
