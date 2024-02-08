@@ -10,6 +10,40 @@ model = joblib.load("model.pkl")
 # Set page title and favicon
 st.set_page_config(page_title="Forest Fire Prediction", page_icon="🔥")
 
+@st.cache_data
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+img = get_img_as_base64("image.jpeg")
+
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url("data:image/jpeg;base64,{img}");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }}
+
+    [data-testid="element-container"] {{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        height: 100
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Display the background image
+
 # Define function to display prediction result with emoji
 def display_prediction(prediction):
     if prediction == 0:
@@ -46,25 +80,4 @@ if st.sidebar.button("Predict 🔮"):
     # Display prediction result
     st.write(f"## Prediction: {display_prediction(prediction[0])}")
 
-
-# Add CSS for background image
-st.markdown(
-    f"""
-    <style>
-    body {{
-        background-image: url('/forest.jpeg');
-        background-size: cover;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 # Add footer
-st.markdown(
-    """
-    <hr>
-    <p style='text-align:center;font-size:12px;'>Made with ❤️ by Prakul</p>
-    """,
-    unsafe_allow_html=True,
-)
