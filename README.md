@@ -37,3 +37,6 @@ Numpy Pandas Matplotlib Seaborn Scikit-learn Scipy Streamlit.
 
 ### Youtube Video Link
 https://youtu.be/MukrHocAEcg?si=YIBDBO5D15XDLfe4
+
+### Website Link
+https://forestfireprediction.streamlit.app/
